@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("concernForm");
+  const successMessage = document.getElementById("success-message");
 
   form.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -21,5 +22,16 @@ Concern: ${encodeURIComponent(concern)}`;
 
     // Open WhatsApp chat in new tab
     window.open(whatsappUrl, '_blank');
+
+    // Show success message
+    successMessage.style.display = "block";
+
+    // Reset form fields
+    form.reset();
+
+    // Hide success message after 3 seconds
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 3000);
   });
 });
