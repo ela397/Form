@@ -1,22 +1,10 @@
-/* style.css */
-body {
-  font-family: Arial, sans-serif;
-  color: #fff; /* text visible on background */
-  margin: 0;
-  padding: 0;
-  text-align: center;
+/* Glow animation for the button */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #ff9800; }
+  50% { box-shadow: 0 0 20px #ff9800; }
+  100% { box-shadow: 0 0 5px #ff9800; }
 }
 
-/* Add a semi-transparent overlay for readability */
-.overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 50px;
-  border-radius: 10px;
-  display: inline-block;
-  margin-top: 100px;
-}
-
-/* Button styling */
 button {
   background: #ff9800;
   border: none;
@@ -24,9 +12,25 @@ button {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s;
 }
 
 button:hover {
-  background: #e68900;
+  animation: glow 1s infinite;
+  transform: scale(1.1); /* makes button grow slightly */
+}
+
+/* Fade-in effect for overlay */
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 100px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
