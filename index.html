@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marister Scout Parent Concern Form</title><link rel="stylesheet" href="style.css">
+  <title>Marister Scout Parent Concern Form</title>
+
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="style.css">
 
   <style>
     body {
@@ -26,6 +29,14 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
       width: 100%;
       max-width: 420px;
+
+      /* Fade-in animation */
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -66,10 +77,20 @@
       font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
+      transition: transform 0.3s;
     }
 
+    /* Glow animation on hover */
     button:hover {
       background-color: #084ec2;
+      animation: glow 1s infinite;
+      transform: scale(1.05);
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #0b6cff; }
+      50% { box-shadow: 0 0 20px #0b6cff; }
+      100% { box-shadow: 0 0 5px #0b6cff; }
     }
   </style>
 </head>
@@ -91,27 +112,9 @@
 
       <button type="submit">Submit</button>
     </form>
-  </div><script src="script.js"></script>
+  </div>
 
-  <script>
-    document.getElementById('concernForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('parentName').value;
-      const contact = document.getElementById('contactNumber').value;
-      const email = document.getElementById('email').value;
-      const concern = document.getElementById('concern').value;
-
-      const message = `Parent Concern Form Submission:%0A
-Name: ${encodeURIComponent(name)}%0A
-Contact: ${encodeURIComponent(contact)}%0A
-Email: ${encodeURIComponent(email)}%0A
-Concern: ${encodeURIComponent(concern)}`;
-
-      const whatsappUrl = `https://wa.me/233556196730?text=${message}`;
-      window.open(whatsappUrl, '_blank');
-    });
-  </script>
+  <!-- Link external JS -->
+  <script src="script.js"></script>
 </body>
 </html>
-
