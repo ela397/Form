@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marister Scout Parent Concern Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: 
+        linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+        url('C:/Users/HP/Desktop/photo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      width: 100%;
+      max-width: 420px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      color: #222;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0b6cff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #084ec2;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Parent Concern Form</h1>
+    <form id="concernForm">
+      <label for="parentName">Parent's Full Name</label>
+      <input type="text" id="parentName" name="parentName" required />
+
+      <label for="contactNumber">Contact Number</label>
+      <input type="tel" id="contactNumber" name="contactNumber" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="concern">Concern Description</label>
+      <textarea id="concern" name="concern" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('concernForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('parentName').value;
+      const contact = document.getElementById('contactNumber').value;
+      const email = document.getElementById('email').value;
+      const concern = document.getElementById('concern').value;
+
+      const message = `Parent Concern Form Submission:%0A
+Name: ${encodeURIComponent(name)}%0A
+Contact: ${encodeURIComponent(contact)}%0A
+Email: ${encodeURIComponent(email)}%0A
+Concern: ${encodeURIComponent(concern)}`;
+
+      const whatsappUrl = `https://wa.me/233556196730?text=${message}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
