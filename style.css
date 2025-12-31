@@ -27,17 +27,18 @@ body {
   z-index: 1;
 }
 
-/* Form container */
+/* Form container with blur effect */
 .form-container {
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
   padding: 40px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   max-width: 480px;
   width: 90%;
   animation: fadeInUp 1.5s ease;
+  backdrop-filter: blur(8px); /* NEW */
 }
 
 /* Title and subtitle */
@@ -88,17 +89,19 @@ textarea {
   min-height: 120px;
 }
 
-/* Submit button */
+/* Submit button with animated gradient */
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(45deg, #0b6cff, #084ec2);
+  background: linear-gradient(270deg, #0b6cff, #084ec2, #0b6cff);
+  background-size: 600% 600%;
   color: #fff;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  animation: gradientMove 6s ease infinite; /* NEW */
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -113,3 +116,20 @@ textarea {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+}
