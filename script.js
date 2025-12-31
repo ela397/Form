@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("concernForm");
   const heading = document.querySelector("h1");
