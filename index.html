@@ -5,30 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Marister Scout Parent Concern Form</title>
 
-  <!-- Link external CSS -->
+  <!-- Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="form-container">
-    <h1>Parent Concern Form</h1>
-    <form id="concernForm">
-      <label for="parentName">Parent's Full Name</label>
-      <input type="text" id="parentName" name="parentName" required />
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="form-container">
+      <h1 class="title">📋 Parent Concern Form</h1>
+      <p class="subtitle">We value your voice — share your concerns with us</p>
 
-      <label for="contactNumber">Contact Number</label>
-      <input type="tel" id="contactNumber" name="contactNumber" required />
+      <form id="concernForm">
+        <div class="form-group">
+          <label for="parentName">👤 Parent's Full Name</label>
+          <input type="text" id="parentName" name="parentName" required />
+        </div>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
+        <div class="form-group">
+          <label for="contactNumber">📞 Contact Number</label>
+          <input type="tel" id="contactNumber" name="contactNumber" required />
+        </div>
 
-      <label for="concern">Concern Description</label>
-      <textarea id="concern" name="concern" required></textarea>
+        <div class="form-group">
+          <label for="email">📧 Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
 
-      <button type="submit">Submit</button>
-    </form>
+        <div class="form-group">
+          <label for="concern">📝 Concern Description</label>
+          <textarea id="concern" name="concern" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">🚀 Submit Concern</button>
+      </form>
+    </div>
   </div>
 
-  <!-- Link external JS -->
+  <!-- External JS -->
   <script src="script.js"></script>
 </body>
 </html>
